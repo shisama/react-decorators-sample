@@ -16,6 +16,10 @@ export default class App extends React.Component {
       }
     );
   };
+  @log
+  componentWillMount() {
+
+  }
 
   @log
   componentDidMount() {
@@ -23,8 +27,28 @@ export default class App extends React.Component {
   }
 
   @log
+  componentWillReceiveProps() {
+
+  }
+
+  @log
   shouldComponentUpdate(nextProps, nextState) {
     return !nextState || nextState.message !== this.state.message;
+  }
+
+  @log
+  componentWillUpdate() {
+
+  }
+
+  @log
+  componentDidUpdate() {
+
+  }
+
+  @log
+  componentWillUnmount() {
+
   }
 
   @log
