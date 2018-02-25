@@ -1,5 +1,6 @@
 import * as React from 'react';
 import logger from '../decorators/logger';
+import Message from './Message';
 const log = logger(process.env.NODE_ENV === 'development');
 
 export default class MyComponent extends React.Component {
@@ -67,7 +68,7 @@ export default class MyComponent extends React.Component {
     return (
       <div>
         <input type="text" onChange = {this.onChange} />
-        <p>{ this.state.message }</p>
+        <Message message={this.state.message}/>
       </div>
     )
   }

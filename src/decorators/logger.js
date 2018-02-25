@@ -6,8 +6,8 @@ export default function(logging = true) {
         return func.bind(this)(this.props);
       }
       const log = console.log;
-      log(this.constructor.name);
-      log("  " + name);
+      log("class: %c" + this.constructor.name, 'color: magenta;');
+      log("  method: %c" + name, 'color: skyblue;');
       log("    props:" + JSON.stringify(this.props));
       log("    state:" + JSON.stringify(this.state));
       const [propsArg, stateArg] = args;
