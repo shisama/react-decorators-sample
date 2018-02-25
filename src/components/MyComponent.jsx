@@ -1,18 +1,29 @@
 import * as React from 'react';
-import log from '../decorators/log';
+import logger from '../decorators/logger';
+const log = logger(process.env.NODE_ENV === 'development');
 
-export default class App extends React.Component {
+export default class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ""
+      message: "",
+      obj: {
+        inner: {
+          value: "",
+        }
+      }
     }
   }
 
   onChange = (e) => {
     this.setState(
       {
-        message: e.target.value
+        message: e.target.value,
+        obj: {
+          inner: {
+            value: e.target.value
+          }
+        }
       }
     );
   };
