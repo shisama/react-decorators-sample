@@ -1,5 +1,5 @@
 import * as React from 'react';
-import logger from '../decorators/logger';
+import logger from 'react-log-decorator';
 import Message from './Message';
 const log = logger(process.env.NODE_ENV === 'development');
 
@@ -7,23 +7,18 @@ export default class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
-      obj: {
-        inner: {
-          value: "",
-        }
+      message_info: {
+        length: 0,
       }
     }
   }
 
   onChange = (e) => {
+    this.props.onChange(e);
     this.setState(
       {
-        message: e.target.value,
-        obj: {
-          inner: {
-            value: e.target.value
-          }
+        message_info: {
+          length: e.target.value.length
         }
       }
     );
@@ -68,7 +63,7 @@ export default class MyComponent extends React.Component {
     return (
       <div>
         <input type="text" onChange = {this.onChange} />
-        <Message message={this.state.message}/>
+        <Message message={this.props.message}/>
       </div>
     )
   }
