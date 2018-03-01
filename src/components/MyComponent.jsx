@@ -40,7 +40,7 @@ export default class MyComponent extends React.Component {
 
   @log
   shouldComponentUpdate(nextProps, nextState) {
-    return !nextState || nextState.message !== this.state.message;
+    return nextProps.message !== this.props.message;
   }
 
   @log
